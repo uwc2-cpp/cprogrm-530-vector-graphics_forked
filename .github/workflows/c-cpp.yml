@@ -19,4 +19,4 @@ jobs:
          sudo apt install gcc-12 g++-12
       shell: bash
     - name: make
-      run: make -C UnitTest CXX=g++-12
+      run: make -C UnitTest CXX=g++-12 all
