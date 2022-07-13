@@ -8,7 +8,7 @@ else
    OPTFLAGS=-O3
 endif
 
-CFLAGS=-I. -std=c++20 -Wall -Werror $(OPTFLAGS)
+CFLAGS=-I. -I../CppUnitLite -std=c++20 -Wall -Werror $(OPTFLAGS)
 
 PROJDIR := $(realpath $(CURDIR)/..)
 BUILDDIR := $(PROJDIR)/Output
@@ -42,3 +42,4 @@ all: directories libVectorGraphics.a
 clean:
 	rm -rf $(TARGETDIRS)
 	rm -rf $(BUILDDIR)
+	rm -rf *.a

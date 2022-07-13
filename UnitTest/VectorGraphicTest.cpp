@@ -1,11 +1,10 @@
-#include "Parse.h"
 #include "VectorGraphic.h"
 #include "TestHarness.h"
 
 TEST(ctor, VectorGraphic)
 {
     VG::VectorGraphic vg;
-    CHECK_EQUAL(0, vg.getPointCount());
+    CHECK_EQUAL(0U, vg.getPointCount());
     CHECK_EQUAL(true, vg.isClosed());
     CHECK_EQUAL(false, vg.isOpen());
 }
@@ -14,10 +13,10 @@ TEST(insertPoint, VectorGraphic)
 {
     VG::VectorGraphic vg;
     vg.addPoint(VG::Point{1, 1});
-    CHECK_EQUAL(1, vg.getPointCount());
+    CHECK_EQUAL(1U, vg.getPointCount());
 
     vg.addPoint(VG::Point{2, 2});
-    CHECK_EQUAL(2, vg.getPointCount());
+    CHECK_EQUAL(2U, vg.getPointCount());
 }
 
 TEST(removePoint, VectorGraphic)
@@ -27,7 +26,7 @@ TEST(removePoint, VectorGraphic)
     vg.addPoint(VG::Point{2, 2});
     vg.removePoint(VG::Point{1, 1});
 
-    CHECK_EQUAL(1, vg.getPointCount());
+    CHECK_EQUAL(1U, vg.getPointCount());
     CHECK_EQUAL(VG::Point(2, 2), vg.getPoint(0));
 }
 
@@ -39,7 +38,7 @@ TEST(erasePoint, VectorGraphic)
     vg.addPoint(VG::Point{3, 3});
     vg.erasePoint(1);
 
-    CHECK_EQUAL(2, vg.getPointCount());
+    CHECK_EQUAL(2U, vg.getPointCount());
     CHECK_EQUAL(VG::Point(1, 1), vg.getPoint(0));
     CHECK_EQUAL(VG::Point(3, 3), vg.getPoint(1));
 }
@@ -57,7 +56,7 @@ TEST(erasePointOutOfRange, VectorGraphic)
     }
     catch (std::out_of_range&)
     {
-        CHECK_EQUAL(3, vg.getPointCount());
+        CHECK_EQUAL(3U, vg.getPointCount());
         return;
     }
     CHECK(false); // should have caught exception
