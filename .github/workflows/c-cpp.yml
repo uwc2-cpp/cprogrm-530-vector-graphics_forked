@@ -20,3 +20,5 @@ jobs:
       shell: bash
     - name: make
       run: make -C UnitTest CXX=g++-12 all
+    - name: test
+      run: ./bin/UnitTest
